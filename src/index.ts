@@ -4,6 +4,11 @@
  *
  * Ported from WeKnora's `dsh-weknora` (DeepSeek Harness plugin); see
  * https://github.com/Tencent/WeKnora/tree/main/packages/dsh-weknora
+ *
+ * This module exports ONLY the plugin: opencode's plugin loader treats every
+ * function export of the entry module as a plugin and calls it, so the
+ * library surface (client, config, tools) lives in subpath modules —
+ * `opencode-weknora/config`, `opencode-weknora/client`, `opencode-weknora/tools`.
  * @module opencode-weknora
  */
 
@@ -13,12 +18,7 @@ import { WeknoraClient } from './client.ts'
 import { configFromEnv, resolveConfig, type Config } from './config.ts'
 import { createTools } from './tools.ts'
 
-export const name = 'opencode-weknora'
-
 export type { Config } from './config.ts'
-export { ConfigError, configFromEnv, normalizeBaseUrl, resolveConfig } from './config.ts'
-export { WeknoraApiError, WeknoraClient } from './client.ts'
-export { createTools } from './tools.ts'
 
 /**
  * Register the configured tools.
