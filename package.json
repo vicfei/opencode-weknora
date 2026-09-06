@@ -1,0 +1,38 @@
+{
+  "name": "opencode-weknora",
+  "version": "0.1.0",
+  "description": "WeKnora knowledge retrieval tools for opencode: semantic search, document reading and RAG answers over your own knowledge bases.",
+  "keywords": [
+    "opencode",
+    "opencode-plugin",
+    "weknora",
+    "rag",
+    "retrieval",
+    "knowledge-base"
+  ],
+  "license": "MIT",
+  "author": "WeKnora",
+  "homepage": "https://github.com/vicfei/opencode-weknora",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vicfei/opencode-weknora.git"
+  },
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": ["dist", "README.md", "README_CN.md"],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "prepare": "npm run build",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "npm run build && node --test \"test/*.test.mjs\""
+  },
+  "peerDependencies": {
+    "@opencode-ai/plugin": ">=0.1.0"
+  },
+  "devDependencies": {
+    "@opencode-ai/plugin": "*",
+    "@types/node": "^22.13.0",
+    "typescript": "^5.7.3"
+  }
+}
